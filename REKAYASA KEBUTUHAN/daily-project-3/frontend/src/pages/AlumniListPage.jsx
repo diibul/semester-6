@@ -16,7 +16,13 @@ function AlumniListPage() {
   }
 
   useEffect(() => {
-    loadData()
+    const initialize = async () => {
+      const data = await fetchAlumni({ page: 1, search: '' })
+      setItems(data.data)
+      setMeta({ current_page: data.current_page, last_page: data.last_page })
+    }
+
+    initialize()
   }, [])
 
   const handleDelete = async (id) => {

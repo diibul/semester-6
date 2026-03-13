@@ -15,7 +15,14 @@ function TrackingResultsPage() {
   }
 
   useEffect(() => {
-    loadResults(page)
+    const initialize = async () => {
+      const data = await fetchResults({ page: 1 })
+      setResults(data.data)
+      setMeta({ current_page: data.current_page, last_page: data.last_page })
+      setPage(1)
+    }
+
+    initialize()
   }, [])
 
   const handleVerify = async (id, action) => {

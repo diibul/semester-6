@@ -38,7 +38,7 @@ function TrackingPage() {
           <select
             value={selectedId}
             onChange={(event) => setSelectedId(event.target.value)}
-            className="min-w-64 rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-500 focus:outline-none"
+            className="w-full min-w-0 rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-500 focus:outline-none sm:w-auto sm:min-w-64"
           >
             {alumni.map((item) => (
               <option key={item.id} value={item.id}>{item.name} ({item.nim})</option>

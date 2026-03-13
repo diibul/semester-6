@@ -16,7 +16,7 @@ function DashboardPage() {
       try {
         const data = await fetchDashboard()
         setStats(data)
-      } catch (error) {
+      } catch {
         // Keep fallback values for dashboard when API is not ready.
       }
     }

@@ -22,7 +22,7 @@ function AlumniDetailPage() {
 
   return (
     <section>
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <h2 className="text-2xl font-bold text-slate-900">Alumni Detail</h2>
         <Link to="/alumni" className="rounded border border-slate-300 px-3 py-1 text-sm font-semibold text-slate-700">Back</Link>
       </div>
