@@ -4,6 +4,12 @@ Implementasi full-stack modern untuk tugas mata kuliah Rekayasa Kebutuhan.
 
 Sistem ini mempertahankan konsep asli: membantu admin melacak data alumni dari berbagai sumber publik, memverifikasi status terkini, dan menyimpan riwayat pelacakan.
 
+## Link Proyek
+
+- Repository GitHub: https://github.com/diibul/semester-6
+- Web aplikasi (published): https://semester-6-two.vercel.app/login
+- API backend (Railway): https://alumni-tracker.up.railway.app
+
 ## Identitas Mahasiswa
 
 - Nama: Muhammad Iqbal Fadel
@@ -329,7 +335,9 @@ Pengujian dilakukan secara manual terhadap aplikasi yang berjalan di lingkungan 
 - Root directory: `frontend`
 - Build command: `npm run build`
 - Output directory: `dist`
-- Environment variable: `VITE_API_URL=https://<domain-backend-anda>/api`
+- Environment variable: `VITE_API_URL=https://alumni-tracker.up.railway.app/api`
+
+URL produksi frontend: `https://semester-6-two.vercel.app/login`
 
 ### Backend (Render / Railway)
 
@@ -338,6 +346,8 @@ Pengujian dilakukan secara manual terhadap aplikasi yang berjalan di lingkungan 
 - Start command: `php artisan serve --host 0.0.0.0 --port $PORT`
 - Gunakan MySQL terkelola dan isi env database
 - Pastikan `APP_ENV=production`, `APP_DEBUG=false`, `APP_KEY` valid
+
+URL produksi backend: `https://alumni-tracker.up.railway.app`
 
 ## Checklist Deliverables
 
