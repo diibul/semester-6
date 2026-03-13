@@ -5,9 +5,14 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\DashboardController;
 use App\Http\Controllers\Api\ResultController;
 use App\Http\Controllers\Api\TrackingController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/login', [AuthController::class, 'login']);
+Route::get('/login', function (Request $request) {
+    return response()->json(['message' => 'Unauthenticated.'], 401);
+})->name('login');
+
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
