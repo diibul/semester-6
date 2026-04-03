@@ -18,8 +18,11 @@ class AlumniController extends Controller
             ->when($search, function ($query, $searchTerm) {
                 $query->where('name', 'like', "%{$searchTerm}%")
                     ->orWhere('nim', 'like', "%{$searchTerm}%")
+                    ->orWhere('faculty', 'like', "%{$searchTerm}%")
                     ->orWhere('study_program', 'like', "%{$searchTerm}%")
-                    ->orWhere('email', 'like', "%{$searchTerm}%");
+                    ->orWhere('email', 'like', "%{$searchTerm}%")
+                    ->orWhere('phone_number', 'like', "%{$searchTerm}%")
+                    ->orWhere('workplace_name', 'like', "%{$searchTerm}%");
             })
             ->latest()
             ->paginate($perPage);
@@ -32,9 +35,22 @@ class AlumniController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'nim' => ['required', 'string', 'max:100', 'unique:alumni,nim'],
+            'entry_year' => ['nullable', 'integer', 'digits:4', 'min:1900'],
+            'graduation_date' => ['nullable', 'date'],
+            'faculty' => ['nullable', 'string', 'max:255'],
             'study_program' => ['required', 'string', 'max:255'],
             'graduation_year' => ['required', 'integer', 'digits:4', 'min:1900'],
             'email' => ['nullable', 'email', 'max:255'],
+            'social_media_linkedin' => ['nullable', 'url', 'max:255'],
+            'social_media_instagram' => ['nullable', 'url', 'max:255'],
+            'social_media_facebook' => ['nullable', 'url', 'max:255'],
+            'social_media_tiktok' => ['nullable', 'url', 'max:255'],
+            'phone_number' => ['nullable', 'string', 'max:30'],
+            'workplace_name' => ['nullable', 'string', 'max:255'],
+            'workplace_address' => ['nullable', 'string'],
+            'position' => ['nullable', 'string', 'max:255'],
+            'employment_type' => ['nullable', 'in:PNS,Swasta,Wirausaha'],
+            'workplace_social_media' => ['nullable', 'url', 'max:255'],
         ]);
 
         $alumni = Alumni::create($validated);
@@ -54,9 +70,22 @@ class AlumniController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'nim' => ['required', 'string', 'max:100', 'unique:alumni,nim,'.$alumni->id],
+            'entry_year' => ['nullable', 'integer', 'digits:4', 'min:1900'],
+            'graduation_date' => ['nullable', 'date'],
+            'faculty' => ['nullable', 'string', 'max:255'],
             'study_program' => ['required', 'string', 'max:255'],
             'graduation_year' => ['required', 'integer', 'digits:4', 'min:1900'],
             'email' => ['nullable', 'email', 'max:255'],
+            'social_media_linkedin' => ['nullable', 'url', 'max:255'],
+            'social_media_instagram' => ['nullable', 'url', 'max:255'],
+            'social_media_facebook' => ['nullable', 'url', 'max:255'],
+            'social_media_tiktok' => ['nullable', 'url', 'max:255'],
+            'phone_number' => ['nullable', 'string', 'max:30'],
+            'workplace_name' => ['nullable', 'string', 'max:255'],
+            'workplace_address' => ['nullable', 'string'],
+            'position' => ['nullable', 'string', 'max:255'],
+            'employment_type' => ['nullable', 'in:PNS,Swasta,Wirausaha'],
+            'workplace_social_media' => ['nullable', 'url', 'max:255'],
             'tracking_status' => ['nullable', 'in:Belum Dilacak,Teridentifikasi,Perlu Verifikasi,Belum Ditemukan'],
         ]);
 

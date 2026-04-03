@@ -15,9 +15,22 @@ class Alumni extends Model
     protected $fillable = [
         'name',
         'nim',
+        'entry_year',
+        'graduation_date',
+        'faculty',
         'study_program',
         'graduation_year',
         'email',
+        'social_media_linkedin',
+        'social_media_instagram',
+        'social_media_facebook',
+        'social_media_tiktok',
+        'phone_number',
+        'workplace_name',
+        'workplace_address',
+        'position',
+        'employment_type',
+        'workplace_social_media',
         'tracking_status',
     ];
 
