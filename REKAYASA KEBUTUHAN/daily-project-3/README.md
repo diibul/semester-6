@@ -120,20 +120,31 @@ Default frontend lokal: `http://localhost:5173`
 - Backend API:
   https://alumni-tracker.up.railway.app
 
+### 9.1 Akun Uji Sistem (Untuk Dosen)
+
+Gunakan akun berikut untuk pengujian fitur login dan alur utama aplikasi pada sistem publish:
+
+- Email: `admin@alumni-tracker.test`
+- Password: `password`
+
+Catatan: akun ini disediakan khusus untuk kepentingan evaluasi akademik.
+
 ## 10. Populasi Data Alumni (Daily Project 4)
 
 ### 10.1 Ringkasan Hasil Populasi Data
 
-Populasi data alumni dilakukan menggunakan importer bulk CSV dari file Google Sheets yang berisi data alumni. Proses ini menghasilkan:
+Populasi data alumni dilakukan menggunakan importer bulk CSV dari dataset tugas dosen. Proses ini menghasilkan:
 
-- **Total alumni yang berhasil diimport**: 109,915 records
+- **Total alumni yang berhasil diimport (lingkungan lokal)**: 109,915 records
 - **Total baris CSV yang dibaca**: 142,292 baris
 - **Baris yang berhasil diproses**: 136,204 baris (95.7%)
 - **Baris yang dilewati**: 6,088 baris (4.3% - karena data wajib kurang: NIM/nama/program studi/tahun lulus)
 
+Catatan: jumlah data pada sistem public dapat berbeda karena sinkronisasi data dilakukan bertahap.
+
 ### 10.2 Metode Pengumpulan Data
 
-Data alumni diperoleh dari Google Sheets yang berisi informasi dasar alumni sebagai berikut:
+Data alumni diperoleh dari file Excel/Sheets yang diberikan dosen untuk kebutuhan tugas akademik. Sumber data mentah tidak dipublikasikan di repository ini.
 
 **Kolom dasar dari Sheets:**
 1. Nama Lulusan
@@ -222,7 +233,27 @@ Berikut contoh beberapa alumni yang berhasil di-import:
 - Alumni dengan No HP: 0
 - Alumni dengan data pekerjaan: 0
 
-(Kolom tambahan data pekerjaan dan kontak masih dalam proses pengumpulan dari sumber publik)
+Data kontak dan pekerjaan pada sistem diisi bertahap dari sumber publik yang terverifikasi, sementara dataset utama tetap disimpan dan divalidasi secara lokal.
+
+### 10.6 Ringkasan Enrichment Data Publik (Teranonimkan)
+
+Sebagai bukti proses tracking, dilakukan enrichment terbatas pada sampel data alumni. Detail profil personal tidak ditampilkan pada README public untuk menjaga privasi data.
+
+Ringkasan hasil enrichment:
+
+- Sampel alumni terverifikasi: 3 data
+- Sampel dengan tautan sosial media terisi: 3 data
+- Sampel dengan informasi pekerjaan terisi: 2 data
+- Sampel dengan status pekerjaan terisi: 2 data
+
+### 10.7 Ketentuan Etika Penggunaan Data
+
+Seluruh data alumni pada proyek ini digunakan hanya untuk kepentingan pembelajaran pada mata kuliah Rekayasa Kebutuhan.
+
+- Data tidak digunakan untuk kepentingan komersial.
+- Data tidak disebarluaskan di luar kebutuhan akademik.
+- Dataset mentah sumber dosen tidak diunggah ke repository public.
+- Informasi personal alumni pada README ditampilkan dalam bentuk ringkasan teranonimkan.
 
 ## 11. Screenshot Aplikasi
 
@@ -261,7 +292,7 @@ Silakan ganti placeholder berikut dengan screenshot asli aplikasi:
 Berdasarkan hasil implementasi dan pengujian, sistem Alumni Tracker telah memenuhi kebutuhan utama pada tugas Daily Project Rekayasa Kebutuhan. Aplikasi berhasil diimplementasikan sebagai web application, telah dipublish, serta menunjukkan hasil pengujian yang baik pada aspek Functionality, Usability, Performance, Security, dan Reliability. 
 
 Khusus untuk Daily Project 4, telah berhasil dilakukan:
-- Populasi data alumni sebanyak 109,915 records dari file CSV Google Sheets
+- Populasi data alumni sebanyak 109,915 records dari file CSV dataset tugas dosen
 - Implementasi importer bulk dengan validasi dan parsing format multi-bahasa
 - Verifikasi integritas data dan konsistensi database
 - Implementasi tampilan halaman alumni dengan pagination dan search
