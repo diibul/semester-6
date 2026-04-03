@@ -142,6 +142,11 @@ Populasi data alumni dilakukan menggunakan importer bulk CSV dari dataset tugas 
 
 Catatan: jumlah data pada sistem public dapat berbeda karena sinkronisasi data dilakukan bertahap.
 
+Snapshot sistem public saat import dihentikan:
+
+- Total data alumni pada deployment public: **33,668**
+- Waktu snapshot: **2026-04-03 21:41:41**
+
 ### 10.2 Metode Pengumpulan Data
 
 Data alumni diperoleh dari file Excel/Sheets yang diberikan dosen untuk kebutuhan tugas akademik. Sumber data mentah tidak dipublikasikan di repository ini.
