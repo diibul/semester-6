@@ -8,6 +8,7 @@ E-commerce menjadi kanal penting untuk memperluas pasar melalui distribusi yang 
 
 ## Gambaran Dataset
 - Sumber: UK-based online retail transactions
+- Referensi paper/dataset: [E-commerce Business Transaction (Kaggle)](https://www.kaggle.com/datasets/gabrielramos87/an-online-shop-business)
 - Ukuran: sekitar 500K baris
 - Jumlah kolom: 8
 - License: CC0 (Public Domain)
