@@ -6,6 +6,8 @@ services:
     buildCommand: |
       cd backend
       composer install --no-interaction --no-dev --optimize-autoloader
+      mkdir -p database
+      touch database/database.sqlite
       php artisan config:clear
       php artisan route:clear
       php artisan view:clear
@@ -34,20 +36,12 @@ services:
       - key: LOG_LEVEL
         value: warning
       - key: SESSION_DRIVER
-        value: database
+        value: file
       - key: CACHE_STORE
-        value: database
+        value: file
       - key: QUEUE_CONNECTION
-        value: database
+        value: sync
       - key: DB_CONNECTION
-        value: mysql
-      - key: DB_HOST
-        sync: false
-      - key: DB_PORT
-        value: "3306"
+        value: sqlite
       - key: DB_DATABASE
-        sync: false
-      - key: DB_USERNAME
-        sync: false
-      - key: DB_PASSWORD
-        sync: false
+        value: /opt/render/project/src/backend/database/database.sqlite

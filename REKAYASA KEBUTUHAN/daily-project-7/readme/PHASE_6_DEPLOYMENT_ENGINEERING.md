@@ -38,8 +38,11 @@ Sudah terpenuhi di `readme/README.md`:
 1. Push repository ke GitHub.
 2. Hubungkan project ke Render.
 3. Gunakan `render.yaml` sebagai blueprint deployment.
-4. Isi env var sensitif.
+4. Isi `APP_URL` setelah URL service terbentuk (opsional saat first deploy).
 5. Deploy.
+
+Catatan:
+- Blueprint Render saat ini menggunakan SQLite default agar deployment dapat langsung jalan tanpa setup MySQL eksternal.
 
 ### Railway
 1. Import repository.

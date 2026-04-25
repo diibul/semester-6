@@ -30,7 +30,7 @@ Aplikasi ini dibangun dengan Laravel + React (Inertia.js) dan menggunakan MySQL 
 
 - Backend: Laravel
 - Frontend: React + Inertia.js
-- Database: MySQL
+- Database: MySQL (development), SQLite (default deployment Render)
 - Styling: Tailwind CSS
 - Authentication: Laravel Breeze (React)
 
@@ -126,13 +126,18 @@ Artefak deployment yang sudah disiapkan:
 - `backend/Procfile` untuk platform yang mendukung Procfile (mis. Railway).
 - `backend/.env.production.example` sebagai template env production.
 
-### Deploy ke Render (recommended)
+### Deploy ke Render (recommended, fastest)
 
 1. Push project ke GitHub.
 2. Buat Web Service baru di Render dan pilih repository ini.
 3. Render akan membaca `render.yaml` otomatis.
-4. Lengkapi env var sensitif (`DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`, `APP_URL`).
+4. Lengkapi `APP_URL` setelah URL service Render terbentuk (opsional saat awal deploy).
 5. Deploy dan verifikasi endpoint utama.
+
+Catatan Render default:
+
+- Konfigurasi saat ini menggunakan SQLite (`DB_CONNECTION=sqlite`) agar deploy cepat tanpa setup database eksternal.
+- File database dibuat otomatis saat build di `backend/database/database.sqlite`.
 
 ### Deploy ke Railway (alternative)
 
