@@ -11,7 +11,7 @@
 | | URL |
 |---|---|
 | **GitHub** | [github.com/diibul/semester-6](https://github.com/diibul/semester-6/tree/main/REKAYASA%20KEBUTUHAN/daily-project-7) |
-| **Live Website** | [studiobook.infinityfreeapp.com](http://studiobook.infinityfreeapp.com) |
+| **Live Website** | [studiobook.kesug.com](https://studiobook.kesug.com) |
 
 ---
 
