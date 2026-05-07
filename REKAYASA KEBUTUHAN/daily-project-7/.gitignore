@@ -13,7 +13,7 @@
 /backend/.zed
 /auth.json
 /frontend/node_modules
-# /backend/public/build  — tracked so Render deploy works without Node.js
+/backend/public/build
 /backend/public/hot
 /backend/public/storage
 /backend/storage/*.key
