@@ -1,0 +1,44 @@
+
++==================================================================+
+| LAPORAN VALIDASI -- ULASAN PARFUM LOKAL                          |
+| Minggu 11-12 | Muhammad Iqbal Fadel | 202310370311268            |
++==================================================================+
+
+File    : ulasan_parfum_processed.csv
+Total   : 868 baris
+
+------------------------------------------------------------------
+1. STATISTIK PANJANG TEKS
+------------------------------------------------------------------
+                      Sebelum (Raw)    Sesudah (Bersih)
+  Rata-rata (char):         64.2          61.1
+  Min (char)      :           10             9
+  Max (char)      :          336           322
+
+  Reduksi rata-rata: 4.9%
+
+------------------------------------------------------------------
+2. CEK SISA NOISE (pada data bersih)
+------------------------------------------------------------------
+  URL tersisa     : 0
+  Hashtag tersisa : 0
+  Mention tersisa : 0
+  Angka tersisa   : 0
+  Teks kosong     : 0
+
+------------------------------------------------------------------
+3. DISTRIBUSI LABEL AKHIR
+------------------------------------------------------------------
+  Positif     :   756 (87.1%)
+  Netral      :   103 (11.9%)
+  Negatif     :     9 (1.0%)
+
+------------------------------------------------------------------
+4. DATA INTEGRITY CHECK
+------------------------------------------------------------------
+  Reduksi wajar (<50%)    : YA
+  Tidak ada URL tersisa   : YA
+  Tidak ada teks kosong   : YA
+  Semua baris berlabel    : YA
+
+==================================================================
