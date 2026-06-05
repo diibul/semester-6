@@ -8,6 +8,7 @@ E-commerce menjadi kanal penting untuk memperluas pasar melalui distribusi yang 
 
 ## Gambaran Dataset
 - Sumber: UK-based online retail transactions
+- Referensi paper/dataset: [E-commerce Business Transaction (Kaggle)](https://www.kaggle.com/datasets/gabrielramos87/an-online-shop-business)
 - Ukuran: sekitar 500K baris
 - Jumlah kolom: 8
 - License: CC0 (Public Domain)
@@ -29,7 +30,7 @@ E-commerce menjadi kanal penting untuk memperluas pasar melalui distribusi yang 
 Terdapat sebagian kecil transaksi pembatalan, umumnya karena stok produk tidak tersedia sehingga pelanggan membatalkan pesanan.
 
 ## Progress yang Sudah Dikerjakan (Data Cleaning)
-Pembersihan dilakukan di notebook [DataProsecing.ipynb](DataProsecing.ipynb) dengan langkah utama:
+Pembersihan dilakukan di notebook [00_data_processing.ipynb](notebooks/00_data_processing.ipynb) dengan langkah utama:
 1. Load data CSV dengan pemisah ;
 2. Standardisasi nama kolom;
 3. Trim whitespace pada kolom teks;
@@ -39,7 +40,7 @@ Pembersihan dilakukan di notebook [DataProsecing.ipynb](DataProsecing.ipynb) den
 7. Tangani missing value pada kolom kritis;
 8. Terapkan business rule (Price > 0, Quantity > 0);
 9. Buat fitur baru TotalAmount dan YearMonth;
-10. Simpan hasil ke [Sales_Transaction_v4a_cleaned.csv](Sales_Transaction_v4a_cleaned.csv).
+10. Simpan hasil ke [Sales_Transaction_v4a_cleaned.csv](data/processed/Sales_Transaction_v4a_cleaned.csv).
 
 ## Hasil Cleaning (Ringkas)
 - Data awal: 536,350 baris
@@ -55,7 +56,42 @@ Pembersihan dilakukan di notebook [DataProsecing.ipynb](DataProsecing.ipynb) den
 4. Segmen pelanggan mana yang paling menguntungkan?
 5. Strategi apa yang direkomendasikan untuk meningkatkan profit?
 
+## Highlight: GMM (Gaussian Mixture Model) Clustering
+Sebagai algoritma utama project ini, GMM digunakan untuk **customer segmentation probabilistik**:
+- Menentukan jumlah cluster optimal melalui **BIC/AIC analysis**
+- Clustering berbasis probabilitas (soft clustering) — setiap pelanggan memiliki derajat keanggotaan di tiap cluster
+- Fitur yang digunakan: Recency, Frequency, Monetary, AvgOrderValue, DistinctProducts
+- Perbandingan hasil GMM vs RFM manual (cross-tabulation)
+- **7 visualisasi** profesional: BIC/AIC, PCA 2D & 3D scatter, radar chart, distribution, probability heatmap, GMM vs RFM
+- Rekomendasi bisnis per cluster
+
+## Quick Start — Jalankan Full Pipeline
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+```
+
+Buka Jupyter Notebook dan jalankan secara berurutan:
+
+```
+notebooks/00_data_processing.ipynb          # Data cleaning
+notebooks/01_eda_run.ipynb                  # EDA + RFM segmentation
+notebooks/02_advanced_analysis.ipynb        # Basket, cohort, forecast
+notebooks/03_model_prep.ipynb               # Feature engineering & selection
+notebooks/04_feature_selection_methods.ipynb # Feature selection comparison
+notebooks/05_baseline_train.ipynb           # RandomForest + CV + evaluation
+notebooks/06_gmm_clustering.ipynb           # GMM clustering (HIGHLIGHT)
+```
+
+Untuk generate deliverables (PDF & PPTX):
+```bash
+python scripts/05_generate_pdf_report.py    # Generate PDF report
+python scripts/06_make_presentation.py      # Generate PPTX presentation
+```
+
 ## Next Step yang Disarankan
-- Lakukan EDA terarah: tren bulanan, top product, sebaran negara, dan pola quantity per transaksi.
-- Segmentasi pelanggan berbasis nilai belanja (misal RFM sederhana).
-- Rumuskan rekomendasi bisnis berbasis temuan data.
+- Hyperparameter tuning model ML.
+- Advanced ML models (XGBoost, Neural Networks).
+- Customer lifetime value (CLV) prediction.
+- Interactive dashboard (Streamlit/Tableau).
