@@ -1,0 +1,113 @@
+
+╔══════════════════════════════════════════════════════════════════╗
+║     LAPORAN DATA PROFILING — ULASAN PARFUM LOKAL                 ║
+║     Minggu 3-4 | Muhammad Iqbal Fadel | 202310370311268          ║
+╚══════════════════════════════════════════════════════════════════╝
+
+📁 File Raw   : ulasan_parfum_raw.csv
+📊 Total Raw  : 1,170 baris (termasuk noise struktural)
+✅ Data Valid : 1,122 baris (setelah buang baris kosong/noise)
+📋 Kolom      : ['USERNAME', 'TIME', 'REVIEW']
+
+──────────────────────────────────────────────────────────────────
+1. DUPLIKAT
+──────────────────────────────────────────────────────────────────
+   Jumlah duplikat : 199 baris
+   Persentase      : 17.74% dari total data valid
+
+──────────────────────────────────────────────────────────────────
+2. MISSING VALUES
+──────────────────────────────────────────────────────────────────
+          missing  persen
+USERNAME        8    0.71
+TIME           11    0.98
+REVIEW        149   13.28
+
+──────────────────────────────────────────────────────────────────
+3. STATISTIK PANJANG TEKS ULASAN
+──────────────────────────────────────────────────────────────────
+   Rata-rata : 58.6 karakter | 10.1 kata
+   Minimum   : 2 karakter | 1 kata
+   Maximum   : 336 karakter | 66 kata
+   Median    : 45.0 karakter | 8.0 kata
+
+──────────────────────────────────────────────────────────────────
+4. NOISE DETECTION (pada 1,122 baris valid)
+──────────────────────────────────────────────────────────────────
+   Mengandung URL          :     1 baris  (0.1%)
+   Mengandung Hashtag (#)  :     0 baris  (0.0%)
+   Mengandung Mention (@)  :     0 baris  (0.0%)
+   Mengandung Emoji        :     0 baris  (0.0%)
+   Mengandung Angka        :    46 baris  (4.1%)
+   Teks Sangat Pendek (<10):    46 baris  (4.1%)
+   Teks Sangat Panjang     :     0 baris  (0.0%)
+
+──────────────────────────────────────────────────────────────────
+5. TOP 30 KATA PALING SERING MUNCUL
+──────────────────────────────────────────────────────────────────
+    1. best                   : 95
+    2. helpful                : 83
+    3. smells                 : 80
+    4. long                   : 77
+    5. here                   : 63
+    6. love                   : 44
+    7. lasting                : 43
+    8. fragrance              : 43
+    9. buy                    : 41
+   10. like                   : 41
+   11. store                  : 40
+   12. perfumes               : 38
+   13. hmns                   : 38
+   14. time                   : 37
+   15. delicious              : 37
+   16. recommended            : 35
+   17. there                  : 33
+   18. one                    : 33
+   19. thank                  : 32
+   20. lasts                  : 30
+   21. sister                 : 30
+   22. price                  : 30
+   23. experience             : 30
+   24. bought                 : 27
+   25. saff                   : 25
+   26. nichol                 : 25
+   27. co                     : 24
+   28. complete               : 23
+   29. fragrant               : 22
+   30. cool                   : 22
+
+──────────────────────────────────────────────────────────────────
+6. KATA GAUL / INFORMAL DOMAIN PARFUM YANG DITEMUKAN
+──────────────────────────────────────────────────────────────────
+    1. worth                  : 13
+    2. sis                    : 13
+    3. mba                    : 5
+    4. bro                    : 4
+    5. kak                    : 4
+    6. bgt                    : 3
+    7. mbak                   : 3
+    8. ok                     : 2
+    9. hehe                   : 2
+   10. mas                    : 2
+   11. haha                   : 1
+   12. lol                    : 1
+   13. mantap                 : 1
+   14. viral                  : 1
+   15. fomo                   : 1
+   16. btw                    : 1
+   17. keren                  : 1
+   18. asap                   : 1
+
+──────────────────────────────────────────────────────────────────
+7. RINGKASAN KUALITAS DATA
+──────────────────────────────────────────────────────────────────
+   ✅ Data valid terkumpul  : 1,122 baris (memenuhi syarat >1.000)
+   ⚠️  Duplikat             : 199 baris (17.74%) → perlu dihapus
+   ⚠️  Teks pendek (<10 ch) : 46 baris → perlu difilter
+   ⚠️  Mengandung emoji     : 0 baris → perlu dibersihkan
+   ℹ️  Bahasa campuran      : Indonesia + Inggris (multi-language dataset)
+   ℹ️  Sumber               : Google Review / HMNS & Saff&Co outlet
+
+══════════════════════════════════════════════════════════════════
+Laporan dibuat oleh: scripts/02_data_profiling/profiling.py
+══════════════════════════════════════════════════════════════════
