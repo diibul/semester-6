@@ -1,0 +1,67 @@
+=================================================================
+  LAPORAN EVALUASI MODEL MACHINE LEARNING
+  Klasifikasi Sentimen Ulasan Parfum Lokal
+  Muhammad Iqbal Fadel | 202310370311268
+=================================================================
+
+CATATAN METODOLOGI:
+  TF-IDF di-fit hanya pada data latih untuk mencegah data leakage.
+  Evaluasi menggunakan (1) train-test split 80/20 stratified dan
+  (2) 5-Fold Stratified Cross Validation via sklearn Pipeline.
+
+=================================================================
+
+BAGIAN A -- EVALUASI TRAIN-TEST SPLIT (80/20)
+
+--- SVM ---
+Akurasi           : 0.8966 (89.66%)
+F1-Score (Macro)   : 0.6709
+F1-Score (Weighted): 0.8769
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Negatif     1.0000    0.5000    0.6667         2
+      Netral     0.6667    0.2857    0.4000        21
+     Positif     0.9085    0.9868    0.9460       151
+
+    accuracy                         0.8966       174
+   macro avg     0.8584    0.5908    0.6709       174
+weighted avg     0.8804    0.8966    0.8769       174
+
+
+--- Naive Bayes ---
+Akurasi           : 0.8966 (89.66%)
+F1-Score (Macro)   : 0.6827
+F1-Score (Weighted): 0.8949
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Negatif     0.4000    1.0000    0.5714         2
+      Netral     0.5882    0.4762    0.5263        21
+     Positif     0.9474    0.9536    0.9505       151
+
+    accuracy                         0.8966       174
+   macro avg     0.6452    0.8099    0.6827       174
+weighted avg     0.8977    0.8966    0.8949       174
+
+
+=================================================================
+
+BAGIAN B -- 5-FOLD CROSS VALIDATION
+(sklearn Pipeline -- TF-IDF di-fit per fold)
+
+--- SVM (5-Fold CV) ---
+Akurasi     : 0.8986 +- 0.0252
+F1-Macro    : 0.5424 +- 0.1495
+F1-Weighted : 0.8844 +- 0.0250
+
+--- Naive Bayes (5-Fold CV) ---
+Akurasi     : 0.8848 +- 0.0096
+F1-Macro    : 0.4005 +- 0.0420
+F1-Weighted : 0.8507 +- 0.0174
+
+=================================================================
+  KESIMPULAN: Model terbaik adalah Naive Bayes
+=================================================================
