@@ -1,0 +1,224 @@
+# Project Structure Guide
+
+## Overview
+This is a university-level data analysis and machine learning project analyzing e-commerce sales transactions. The project uses Jupyter Notebooks as the primary analysis medium, with utility scripts for report/presentation generation.
+
+---
+
+## Folder Structure
+
+```
+project-root/
+│
+├── README.md                      # Project overview and quick start
+├── requirements.txt               # Python dependencies
+├── .gitignore                     # Git exclusions
+│
+├── data/                          # All data-related files
+│   ├── raw/                       # Original immutable data (do not modify)
+│   │   └── Sales Transaction v.4a.csv
+│   │
+│   └── processed/                 # Cleaned and processed data
+│       ├── Sales_Transaction_v4a_cleaned.csv
+│       ├── model_data_customers.csv
+│       └── selected_feature_scores.csv
+│
+├── notebooks/                     # Jupyter notebooks (main analysis)
+│   ├── 00_data_processing.ipynb           # Data cleaning and preprocessing
+│   ├── 01_eda_run.ipynb                   # EDA + RFM segmentation
+│   ├── 02_advanced_analysis.ipynb         # Basket, cohort, forecast analysis
+│   ├── 03_model_prep.ipynb                # Feature engineering and selection
+│   ├── 04_feature_selection_methods.ipynb  # Advanced feature selection comparison
+│   ├── 05_baseline_train.ipynb            # RandomForest + CV + evaluation
+│   └── 06_gmm_clustering.ipynb            # GMM clustering pipeline (HIGHLIGHT)
+│
+├── scripts/                       # Utility scripts (report generation only)
+│   ├── 05_generate_pdf_report.py  # Generate PDF from markdown + images
+│   └── 06_make_presentation.py    # Generate PPTX presentation
+│
+├── outputs/                       # Generated outputs (not versioned)
+│   ├── figures/                   # Visualizations and plots
+│   │   ├── eda/                   # EDA visualizations (12 PNG files)
+│   │   │   ├── monthly_sales_trend.png
+│   │   │   ├── top20_products_by_revenue.png
+│   │   │   ├── rfm_segment_counts.png
+│   │   │   ├── cohort_retention_heatmap.png
+│   │   │   └── [other PNG outputs]
+│   │   │
+│   │   ├── analysis/              # Feature selection analysis plots (6 files)
+│   │   │   ├── feature_selection_comparison.png
+│   │   │   ├── model_performance_comparison.png
+│   │   │   └── [other analysis plots]
+│   │   │
+│   │   ├── models/                # Model evaluation plots (4 files)
+│   │   │   ├── baseline_roc.png
+│   │   │   ├── feature_importance.png
+│   │   │   ├── confusion_matrix.png
+│   │   │   └── cross_validation_scores.png
+│   │   │
+│   │   └── gmm/                   # GMM clustering visualizations (7 files)
+│   │       ├── gmm_bic_aic_selection.png
+│   │       ├── gmm_cluster_scatter_2d.png
+│   │       ├── gmm_cluster_scatter_3d.png
+│   │       ├── gmm_cluster_profiles_radar.png
+│   │       ├── gmm_cluster_distribution.png
+│   │       ├── gmm_probability_heatmap.png
+│   │       └── gmm_vs_rfm_comparison.png
+│   │
+│   └── data/                      # Analysis output data
+│       ├── models/                # Model artifacts
+│       │   ├── baseline_rf.pkl
+│       │   └── baseline_metrics.json
+│       │
+│       ├── analysis/              # RFM, product, basket, cohort, forecast
+│       │   ├── rfm_summary.csv
+│       │   ├── rfm_strategy_recommendations.csv
+│       │   ├── product_revenue_summary.csv
+│       │   ├── basket_top_pairs.csv
+│       │   ├── cohort_retention.csv
+│       │   ├── monthly_forecast.csv
+│       │   └── [other CSV outputs]
+│       │
+│       └── gmm/                   # GMM clustering results
+│           ├── gmm_cluster_assignments.csv
+│           ├── gmm_cluster_profiles.csv
+│           ├── gmm_strategy_recommendations.csv
+│           └── gmm_model.pkl
+│
+├── reports/                       # Final deliverables
+│   ├── Laporan_Progres_01-06-2026.pdf          # Full progress report (PDF)
+│   ├── presentation_progres_01-06-2026.pptx    # Presentation (30 slides)
+│   │
+│   └── markdown/                  # Source markdown files
+│       └── Laporan_Progres_24-05-2026.md       # GMM implementation report
+│
+├── docs/                          # Documentation
+│   ├── STRUCTURE.md               # This file
+│   └── PROGRESS.md                # Project milestones and progress
+│
+└── .venv-1/                       # Virtual environment (not versioned)
+```
+
+---
+
+## File Descriptions
+
+### Data Folder (`data/`)
+- **raw/**: Original dataset files (immutable)
+  - Keep original files here for reference
+  - Never modify raw data
+  
+- **processed/**: Cleaned and analysis-ready data
+  - Contains cleaned CSVs and model inputs
+  - Generated by notebook `00_data_processing.ipynb`
+
+### Notebooks Folder (`notebooks/`)
+- Contains all **analysis notebooks** as the primary deliverables
+- Numbered for execution order (00 → 06)
+- Mix code, visualization, and narrative text
+- Run sequentially for full analysis pipeline
+
+**Notebooks:**
+1. `00_data_processing.ipynb` - Data cleaning steps and validation
+2. `01_eda_run.ipynb` - EDA + RFM segmentation + visualizations
+3. `02_advanced_analysis.ipynb` - Basket analysis, cohort retention, forecasting
+4. `03_model_prep.ipynb` - Customer-level feature engineering and selection
+5. `04_feature_selection_methods.ipynb` - Advanced feature selection comparison (correlation-based, backward elimination, model-based)
+6. `05_baseline_train.ipynb` - RandomForest classifier with cross-validation, feature importance, confusion matrix
+7. `06_gmm_clustering.ipynb` - **GMM clustering pipeline (HIGHLIGHT)**
+
+### Scripts Folder (`scripts/`)
+- Contains **utility scripts** for generating deliverables
+- Only 2 files: PDF report generator and PPTX presentation generator
+
+**Scripts:**
+1. `05_generate_pdf_report.py` - Create PDF report from markdown + images
+2. `06_make_presentation.py` - Create PPTX slides from visualizations
+
+### Outputs Folder (`outputs/`)
+- **DO NOT VERSION** (add to `.gitignore`)
+- Generated by running notebooks
+- Automatically created if missing
+- Organize by type (figures, data)
+
+### Reports Folder (`reports/`)
+- Final deliverables for submission
+- PDF report and PPTX presentation
+- `markdown/` subfolder contains source markdown
+
+### Docs Folder (`docs/`)
+- Project documentation
+- `STRUCTURE.md` (this file) and `PROGRESS.md`
+
+---
+
+## Working with This Project
+
+### To Run the Full Pipeline
+
+Open notebooks in Jupyter and execute sequentially:
+
+```
+notebooks/00_data_processing.ipynb          # Step 1: Clean raw data
+notebooks/01_eda_run.ipynb                  # Step 2: EDA + RFM
+notebooks/02_advanced_analysis.ipynb        # Step 3: Advanced analytics
+notebooks/03_model_prep.ipynb               # Step 4: Feature engineering
+notebooks/04_feature_selection_methods.ipynb # Step 5: Feature selection
+notebooks/05_baseline_train.ipynb           # Step 6: Baseline ML model
+notebooks/06_gmm_clustering.ipynb           # Step 7: GMM clustering (HIGHLIGHT)
+```
+
+### To Generate Deliverables
+
+```bash
+python scripts/05_generate_pdf_report.py    # Generate PDF report
+python scripts/06_make_presentation.py      # Generate PPTX presentation
+```
+
+### To Add New Analysis
+
+1. **Exploratory work**: Create new notebook in `notebooks/`
+2. **Output**: Save results to `outputs/`
+3. **Report**: Document findings in `reports/markdown/`
+
+---
+
+## Best Practices
+
+✓ **Do**
+- Keep raw data immutable in `data/raw/`
+- Save all outputs to `outputs/`
+- Use relative paths in notebooks (already configured)
+- Document major findings in `reports/markdown/`
+- Update `requirements.txt` when adding packages
+
+✗ **Don't**
+- Modify files in `data/raw/`
+- Save outputs to root or random folders
+- Use absolute paths
+- Commit large generated files (use `.gitignore`)
+- Leave notebooks with errors
+
+---
+
+## Path Management
+
+All notebooks are configured with relative paths:
+
+```python
+# In notebooks, paths work like this:
+ROOT = os.path.abspath('..')
+DATA = os.path.join(ROOT, 'data', 'processed', 'file.csv')
+OUT = os.path.join(ROOT, 'outputs', 'figures', 'eda', 'plot.png')
+```
+
+This ensures:
+- Notebooks work from the `notebooks/` directory
+- Paths are relative to project root
+- No hardcoded absolute paths
+- Works on Windows, Mac, Linux
+
+---
+
+**Last Updated:** June 1, 2026  
+**Project Status:** Production-ready for university submission
