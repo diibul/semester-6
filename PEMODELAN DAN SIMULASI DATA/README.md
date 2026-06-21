@@ -14,9 +14,9 @@
 Proyek ini mengimplementasikan sistem simulasi berbasis agen (Agent-Based Modeling) untuk memodelkan perilaku pembelian pelanggan dalam lingkungan e-commerce. Simulasi ini bertujuan untuk menganalisis bagaimana berbagai variabel, seperti tingkat diskon, minat pelanggan, dan suasana hati (shopping mood), memengaruhi agregat volume transaksi. Proyek ini disusun sebagai pemenuhan Tugas Akhir praktikum mata kuliah Pemodelan dan Simulasi Data semester 6.
 
 ## Latar Belakang
-Dalam lingkungan e-commerce, perilaku pembelian pelanggan merupakan faktor dinamis yang krusial untuk mengoptimalkan strategi penjualan dan penetapan harga. Namun, perilaku konsumen agregat bukanlah penjumlahan sederhana dari entitas yang identik; melainkan interaksi kompleks dari berbagai faktor kognitif dan situasional setiap individu.
+Dalam ekosistem e-commerce, perilaku pembelian pelanggan adalah faktor kunci dalam mengoptimalkan strategi penjualan. Namun, perilaku konsumen secara agregat tidak sekadar akumulasi dari individu yang identik, melainkan hasil interaksi dinamis dari berbagai faktor kognitif dan situasional masing-masing pelanggan.
 
-Pendekatan Agent-Based Modeling (ABM) memberikan kerangka kerja yang relevan untuk mengatasi kompleksitas ini. Dengan memodelkan setiap pelanggan sebagai agen otonom yang memiliki karakteristik pengambilan keputusan sendiri, simulasi ini memungkinkan observasi pola perilaku kolektif yang muncul dari interaksi agen dengan lingkungan, tanpa harus menetapkan aturan agregat secara paksa.
+Pendekatan Agent-Based Modeling (ABM) sangat relevan untuk memodelkan sistem yang kompleks ini. Dengan merepresentasikan setiap pelanggan sebagai agen otonom yang memiliki aturan pengambilan keputusannya sendiri, kita dapat mengamati pola perilaku kolektif yang muncul secara natural dari interaksi agen dengan lingkungannya, tanpa perlu mendefinisikan aturan makro secara kaku.
 
 ## Tujuan Simulasi
 1. Mengimplementasikan model matematika probabilitas dalam logika keputusan agen pelanggan.
@@ -111,7 +111,7 @@ streamlit run app.py
 ---
 
 ## Hasil Simulasi
-Eksekusi dari model simulasi memberikan representasi data kuantitatif dari perilaku agen. Beberapa pengamatan saintifik yang diharapkan muncul:
+Eksekusi model simulasi ini memberikan gambaran kuantitatif mengenai perilaku agen. Beberapa temuan utama dari simulasi ini antara lain:
 1. **Dampak Potongan Harga:** Terdapat hubungan berbanding lurus antara peningkatan persentase diskon dengan kenaikan jumlah rata-rata transaksi harian, yang disebabkan oleh naiknya probabilitas beli setiap agen.
 2. **Volatilitas Suasana Hati:** Pergeseran nilai kondisi emosional agregat *(Shopping mood)* dari rendah ke tinggi dapat secara signifikan meningkatkan frekuensi transaksi pada kondisi harga yang konstan.
 3. **Kestabilan Statistik:** Sesuai prinsip Monte Carlo, meningkatkan jumlah iterasi dapat menyempitkan variansi sehingga fluktuasi grafik simulasi antar siklus cenderung lebih dapat diprediksi.
@@ -119,13 +119,13 @@ Eksekusi dari model simulasi memberikan representasi data kuantitatif dari peril
 ---
 
 ## Keterbatasan Model
-Simulasi ini dirancang untuk tujuan demonstrasi akademik dan konseptual dengan batasan sebagai berikut:
-1. **Penggunaan Nilai Acak (Randomness):** Distribusi parameter internal agen dihasilkan menggunakan distribusi probabilitas secara acak beraturan *(Uniform Distribution)*, dan bukan menggunakan data log transaksi pelanggan riil.
-2. **Ketiadaan Dinamika Waktu:** Model dieksekusi sebagai abstraksi kejadian tunggal *(snapshot)* tanpa memperhitungkan variabel pembelajaran berulang pelanggan, faktor musiman, atau pergeseran tren.
-3. **Ketiadaan Faktor Pengaruh Eksternal:** Model belum memperhitungkan dinamika interaksi sosial antar agen (seperti sentimen pasar atau *word-of-mouth*). Keputusan yang diambil agen bersifat terisolasi.
-4. **Tujuan Implementasi:** Simulasi ini bertujuan untuk memahami pola konseptual teori pemodelan saintifik dan tidak ditujukan sebagai *tool* penunjang keputusan finansial atau prediksi penjualan pada pasar bisnis secara aktual.
+Simulasi ini dirancang untuk tujuan akademik dengan batasan sebagai berikut:
+1. **Penggunaan Nilai Acak:** Parameter bawaan setiap agen dihasilkan menggunakan distribusi probabilitas acak (*Uniform Distribution*), bukan bersumber dari dataset transaksi pelanggan riil.
+2. **Tidak Ada Dinamika Waktu:** Model dijalankan sebagai abstraksi kejadian tunggal (*snapshot*). Model tidak mempertimbangkan interaksi berulang pelanggan dari waktu ke waktu, faktor musiman, atau pergeseran tren.
+3. **Tanpa Pengaruh Sosial Eksternal:** Model belum mempertimbangkan efek interaksi antar agen (misalnya sentimen pasar, ulasan, atau *word-of-mouth*). Keputusan pembelian masing-masing agen bersifat terisolasi.
+4. **Fokus Implementasi:** Simulasi ini bertujuan untuk mengeksplorasi konsep pemodelan data, bukan ditujukan sebagai alat bantu analitik bisnis maupun prediksi penjualan untuk pasar nyata.
 
 ---
 
 ## Kesimpulan
-Proyek Agent-Based Modeling yang dipadukan dengan teknik Monte Carlo ini telah berhasil merepresentasikan bagaimana faktor-faktor tingkat mikro (probabilitas, harga, ketersediaan anggaran, dan suasana hati) berinteraksi dalam membentuk luaran perilaku makro (agregat total transaksi penjualan). Dasbor interaktif terbukti mampu menjadi instrumen analisis skenario eksperimen yang dapat direproduksi.
+Melalui integrasi Agent-Based Modeling dan metode Monte Carlo, proyek ini berhasil mensimulasikan bagaimana variabel tingkat mikro (probabilitas dasar, ketersediaan anggaran, tingkat diskon, dan suasana hati) berinteraksi dan membentuk pola transaksi secara makro. Dashboard Streamlit interaktif yang dibangun juga mempermudah pengujian berbagai skenario eksperimen secara fleksibel dan visual.
